@@ -1,6 +1,7 @@
-import os
-os.path.insert(0, )
-from env.gym_ant.ant_env_v4 import AntEnv
+import sys
+sys.path.insert(0, '/home/thatblueboy/mujoco/my_envs/hexapod-rl/env/gym_ant/')
+
+from ant_env_v4 import AntEnv
 
 
 env = AntEnv(render_mode="human")
