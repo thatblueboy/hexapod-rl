@@ -6,6 +6,7 @@ import os
 import sys
 sys.path.insert(0, 'Mujoco-Tutorial/')
 from mujocobase import MuJoCoBase
+import argparse
 
 
 
@@ -13,7 +14,7 @@ from mujocobase import MuJoCoBase
 class spawn(MuJoCoBase):
     def __init__(self, xml_path):
         super().__init__(xml_path)
-        self.simend = 10.0
+        self.simend = 60.0
 
     def reset(self):
         # Set camera configuration
@@ -56,8 +57,14 @@ class spawn(MuJoCoBase):
 
 
 def main():
-    xml_path = "my_envs/hexapod-rl/descriptions/ant.xml"
+    
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--xml_path', type=str, default='my_envs/hexapod-rl/descriptions/spiderbot.xml')
+    args = parser.parse_args()
+    xml_path = args.xml_path
+  
     sim = spawn(xml_path)
+    print(sim.model.ngeom)
     sim.reset()
     sim.simulate()
 

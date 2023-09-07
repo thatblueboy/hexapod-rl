@@ -1,6 +1,5 @@
 import sys
-sys.path.insert(0, 'hexapod-rl/env/gym_ant')
-
+sys.path.append('my_envs/hexapod-rl/env/gym_ant')
 from ant_env_v4 import AntEnv
 
 
